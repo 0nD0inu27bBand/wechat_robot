@@ -1,0 +1,5 @@
+.DS_Store
+_pgbackup
+itchat.pkl
+*.pyc
+log.txt

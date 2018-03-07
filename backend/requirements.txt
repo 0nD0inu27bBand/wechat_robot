@@ -1,0 +1,13 @@
+certifi
+chardet
+htmlPy
+idna
+itchat
+Jinja2
+MarkupSafe
+pypng
+PyQRCode
+PySide
+requests
+urllib3
+pypinyin

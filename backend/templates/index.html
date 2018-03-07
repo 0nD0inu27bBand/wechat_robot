@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Blank Template for Bootstrap</title>
+        <!-- Bootstrap core CSS -->
+        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ 'css/bootstrap.css'|staticfile }}" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="panel"> 
+                        <div class="panel-body">
+                            <p>消息内容:</p>
+                            <textarea class="form-control" rows="14" id="window-content" data-pg-name="window-content">hello! 好久不聊</textarea>
+                        </div>                         
+                    </div>                     
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="panel"> 
+                        <div class="panel-body">
+                            <p>配置选项:</p>
+                            <div class="form-group" style="display: none; "> 
+                                <label id="window-auto-delete" data-pg-name="window-auto-delete">
+                                    <input class="control-label" type="checkbox" value="" id="window-friend-delete" data-pg-name="window-friend-delete">&nbsp;自动删除非好友(not implement)
+                                </label>
+                            </div>
+                            <div class="form-group" style="height: 60px">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <b>消息间隔时间(秒):</b>
+                                    <br>
+                                    <input type="text" class="form-control" id="window-message-interval" placeholder="Placeholder text" value="3" data-pg-name="window-message-interval">
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <b>起始发送位置:</b>
+                                    <br>
+                                    <input type="text" class="form-control" id="window-message-startindex" placeholder="Placeholder text" value="1" data-pg-name="window-message-interval">
+                                </div>
+                            </div>
+                            <div class="form-group"> 
+                                <label class="control-label" for="formInput53">消息类型:</label>
+                                <div class="radio" style="margin-top: 0px"> 
+                                    <label class="control-label" id="msg-type" data-pg-name="msg-type">
+                                        <input type="radio" name="window-msg-type" value="0" id="window-msg-type" checked="checked">普通消息 &nbsp;
+                                        <br>
+                                    </label>
+                                    <label class="control-label" id="msg-type" data-pg-name="msg-type">
+                                        <input type="radio" name="window-msg-type" value="1" id="window-picture-type">图片 &nbsp;
+                                        <br>
+                                    </label>
+                                    <label class="control-label" id="msg-type" data-pg-name="msg-type">
+                                        <input type="radio" name="window-msg-type" value="2" id="window-video-type">视频 &nbsp;
+                                        <br>
+                                    </label>
+                                    <label class="control-label" id="msg-type" data-pg-name="msg-type">&nbsp;
+                                        <input type="radio" name="window-msg-type" value="3" id="window-file-type">文件 &nbsp;
+                                        <br>
+                                    </label>                                     
+                                </div>
+                                <textarea class="form-control" id="window-msg-file" onchange="msgExtraChange();" name="window-msg-file" placeholder="请将媒体资源文件拖入该输入框"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <b>检测结果:</b>
+                                <br>
+                                <div class="row">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="form-group text-center">
+                                            <label class="control-label" for="formInput535">共发送</label>                                                                                                                                    &nbsp;
+                                            <br>
+                                            <span class="badge" value="0" id="window-result-all">0</span>
+                                        </div>                                         
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="form-group text-center">
+                                            <label class="control-label" for="formInput535">好友</label>                                                                                                                                    &nbsp;
+                                            <br>
+                                            <span class="badge alert-success" value="0" id="window-result-success" data-pg-name="window-result-success">0</span>
+                                        </div>                                         
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <div class="form-group text-center">
+                                            <label class="control-label" for="formInput535">非好友</label>                                                                                                                                    &nbsp;
+                                            <br>
+                                            <span class="badge alert-danger" value="0" id="window-result-failed" data-pg-name="window-result-failed">0</span>
+                                        </div>                                         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                         
+                    </div>                     
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <p>运行日志:</p>
+                            <textarea class="form-control" id="window-logs" data-pg-name="window-logs" rows="8"></textarea>
+                        </div>
+                    </div>                     
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <section>
+                        <h3><h4>用户状态:</h4></h3>
+                        <div class="alert alert-success">
+                            <strong id="window-user-status">未登录!</strong>
+                            <button type="button" id="window-login-button" class="btn btn-success btn-sm" onclick="call_login();">登录</button>
+                        </div>
+                    </section>
+                    <section>
+                        <h3><h4>运行状态:</h4></h3>
+                        <p class="text-success lead" id="window-system-status">未运行</p>
+                    </section>                     
+                </div>
+                <div class="text-center col-xs-3 col-sm-3 col-md-3 col-lg-3"> 
+                    <div>
+                        <button type="button" class="btn btn-lg btn-block btn-success" style="margin-top: 50px;" id="window-action-start" data-pg-name="window-action-start" disabled onclick="call_message_start();">开始群发</button>
+                        <button type="button" class="btn btn-lg btn-block btn-success" style="margin-top: 50px;" id="window-action-check" data-pg-name="window-action-check" disabled onclick="call_friend_check();">检测好友</button>
+                    </div>                     
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ 'js/jquery.min.js'|staticfile }}"></script>
+        <script src="{{ 'js/bootstrap.min.js'|staticfile }}"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="{{ 'js/ie10-viewport-bug-workaround.js'|staticfile }}"></script>
+
+        <script src="../bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="../bootstrap/js/jquery.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript">
+        function python_function_login(status){
+            if(status == 0){
+                $("#window-user-status").text('已登录!');
+                $("#window-login-button").text("注销");
+                $("#window-action-start").removeAttr("disabled");
+            } else {
+                $("#window-user-status").text('登录失败!请检查');
+            }
+        }
+
+        function msgExtraChange(){
+            var context = $("#window-msg-file").val().toLowerCase()
+            if (context.length > 8) {
+                if (context.endsWith('.png') || context.endsWith('.jpg') || context.endsWith('.gif')) {
+                    $('#window-picture-type').prop("checked", true);
+                } else if (context.endsWith('.mp4') || context.endsWith('.avi') || context.endsWith('.3gp') || context.endsWith('.mov')){
+                    $('#window-video-type').prop("checked", true);
+                } else {
+                    $('#window-file-type').prop("checked", true);
+                }
+            } else {
+                $('#window-msg-type').prop("checked", true);
+            }
+        }
+
+        function python_function_logout(status){
+            if(status == 0){
+                $("#window-user-status").text('未登录!');
+                $("#window-login-button").text("登录");
+                $("#window-action-start").attr("disabled", true);
+                //$("#window-action-check").attr("disabled", true);
+
+            } else {
+                $("#window-user-status").text('退出失败!请检查');
+            }
+        }
+
+        function python_function_send(count){
+            $("#window-result-all").text(count);
+        }
+
+        function python_function_log(log){
+            $("#window-logs").text($("#window-logs").text() + log + "\n");
+        }
+
+        function python_function_start(status){
+            if(status == 1){
+                $("#window-system-status").text('群发中...');
+                $("#window-action-start").text('停止群发');
+            } else {
+                $("#window-system-status").text('启动失败! 未运行');
+                $("#window-action-start").text('开始群发');
+            }
+        }
+
+        function python_function_start_over(status){
+            if(status == 1){
+                $("#window-system-status").text('未运行');
+                $("#window-action-start").text('开始群发');
+            } else {
+                $("#window-system-status").text('群发失败！');
+                $("#window-action-start").text('开始群发');
+            }
+        }
+
+        function call_login(){
+            BindingClass.form_function_login();
+        }
+
+        function call_message_start(){
+            BindingClass
+                .form_function_start(
+                    //消息内容
+                    $("#window-content").val(),
+                    //消息类型0.普通消息，1.图片消息，2.视频消息，3.文件消息
+                    $("input[name='window-msg-type']:checked").val(),
+                    //媒体文件
+                    $("#window-msg-file").val(),
+                    //是否自动删除好友
+                    $("#window-friend-delete").is(':checked'),
+                    //消息时间间隔
+                    $("#window-message-interval").val(),
+                    //发送好友起始位置
+                    $("#window-message-startindex").val()
+                );
+
+        }
+
+        function call_check_start(){
+            BindingClass
+                .form_function_check(
+                    //是否自动删除好友
+                    $("#window-friend-delete").is(':checked')
+                );
+        }
+    </script>
+    </body>
+</html>
